@@ -1,0 +1,34 @@
+{
+  "name": "orits",
+  "version": "0.0.13",
+  "bin":"./dist/index.js",
+  "description": "origamits cli",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "publish": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/origamiicore/orits.git"
+  },
+  "keywords": [
+    "origamits",
+    "cli"
+  ],
+  "author": "origamicore.com@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/origamiicore/orits/issues"
+  },
+  "homepage": "https://github.com/origamiicore/orits#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.40"
+  },
+  "dependencies": {
+    "commander": "^9.3.0",
+    "orits": "0.0.2",
+    "typescript": "^4.7.3"
+  }
+}
