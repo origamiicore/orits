@@ -1,6 +1,6 @@
 {
   "name": "orits",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "bin":"./dist/index.js",
   "description": "origamits cli",
   "main": "./dist/index.js",

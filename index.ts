@@ -59,7 +59,7 @@ class OriTs
         await this.execute('git -C '+this.dir+' clone https://github.com/origamiicore/oriseed.git')
         fs.rmSync(this.dir+'/oriseed/.git', { recursive: true, force: true })
         fs.renameSync(this.dir+'/oriseed', this.dir+'/'+name);
-        await this.execute('npm install --prefix  '+this.dir+'/oriseed/');
+        await this.execute('npm install --prefix  '+ this.dir+'/'+name);
         Log('The '+name +' project was created successfully',Colors.Green);        
     }
     execute(command:string):Promise<void>

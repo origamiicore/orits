@@ -51,8 +51,11 @@ class OriTs {
         if (method == 'addservice') {
             this.addService(defaultVar);
         }
-        if (method == 'create') {
+        else if (method == 'create') {
             this.createProject(defaultVar);
+        }
+        else {
+            (0, log_1.default)('Meyhod not found', log_1.Colors.Read);
         }
     }
     addService(serviceName) {
@@ -83,7 +86,7 @@ class OriTs {
             yield this.execute('git -C ' + this.dir + ' clone https://github.com/origamiicore/oriseed.git');
             fs_1.default.rmSync(this.dir + '/oriseed/.git', { recursive: true, force: true });
             fs_1.default.renameSync(this.dir + '/oriseed', this.dir + '/' + name);
-            yield this.execute('npm install --prefix  ' + this.dir + '/oriseed/');
+            yield this.execute('npm install --prefix  ' + this.dir + '/' + name);
             (0, log_1.default)('The ' + name + ' project was created successfully', log_1.Colors.Green);
         });
     }

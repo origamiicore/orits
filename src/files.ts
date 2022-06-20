@@ -2,7 +2,8 @@ import Name from "./name";
 
 export default class Files
 {
-    static userModel:string=`import { OriProps,IOriModel } from "origamits"; 
+    static userModel:string=`import { OriProps,IOriModel,OriModel } from "origamits"; 
+@OriModel()
 export default class UserModel extends IOriModel
 {
     _id:string
@@ -66,21 +67,22 @@ export default class ${name.upperCase}Service implements PackageIndex
 
 export default class ${name.upperCase}Config extends ModuleConfig
 {
+    async createInstance(): Promise<PackageIndex> {
+        var instance=new ${name.upperCase}Service();
+        await instance.jsonConfig(this);
+        return instance;
+    }
     dbContext:string;
     public constructor(
         
         fields?: {
-            id:string
+            id?:string
             name?: string, 
             dbContext?:string  
         }) {
 
         super(fields);
         if (fields) Object.assign(this, fields);
-        if(!fields?.id)
-        {
-            this.id=Math.random().toString();
-        }
     }
 }`
     }
