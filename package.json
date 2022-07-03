@@ -1,6 +1,6 @@
 {
-  "name": "orits",
-  "version": "0.0.15",
+  "name": "oricli",
+  "version": "2.0.0",
   "bin":"./dist/index.js",
   "description": "origamits cli",
   "main": "./dist/index.js",

@@ -1,23 +1,23 @@
-# OrigamiTS CLI
+# Typescript OrigamiCore CLI
 
-[OrigamiTS](https://www.npmjs.com/package/origamits)
+[OrigamiCore](https://www.npmjs.com/package/origamicore)
 
 ## Installation
 
 OriTS requires [Node.js](https://nodejs.org/) v14+ to run.
 
 ```sh
-npm install orits -g
+npm install oricli -g
 ```
 
 ### Create Projects
 
 ```sh
-orits create projectName
+oricli --create projectName
 ```
 
 ### Create Service
 
 ```sh
-orits addservice serviceName
+oricli --addservice serviceName
 ```

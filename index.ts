@@ -5,28 +5,53 @@ import Files from "./src/files";
 import Log, { Colors } from "./src/log";
 import Name from "./src/name";
 const { exec,spawn  } = require('child_process');
+var pjson = require('../package.json');
 class OriTs
 {
     dir:string='';
     constructor()
     {
-        Log('OriTS v0.0.13');
         
         var method=process.argv[2];
         var defaultVar=process.argv[3];
         this.dir=process.cwd(); 
-        if(method=='addservice')
+        if(method=='--addservice'|| method=='-a')
         {
+            Log('OriTS v'+pjson.version);
             this.addService(defaultVar);
         }
-        else if(method=='create')
+        else if(method=='--version' || method=='-v')
         {
+            Log('Version '+pjson.version,Colors.Green)
+
+        }
+        else if(method=='--create' || method=='-c')
+        {
+            Log('OriTS v'+pjson.version);
             this.createProject(defaultVar);
+        }
+        else if(method=='--help' || method=='-h')
+        {
+            Log('OriTS v'+pjson.version);
+            this.printHelp()
         }
         else
         {
-            Log('Meyhod not found',Colors.Read)
+            Log('OriTS v'+pjson.version);
+            Log('Wrong arg',Colors.Read);
+            this.printHelp()
         }
+    }
+    printHelp()
+    {
+        Log('Example usage')
+        Log('   $ oricli <cammand> <options>')
+        Log('')
+        Log('Commands')
+        Log('   --create,-c {{project name}}        create new project')
+        Log('   --addservice,-a {{service name}}    create new service')
+        Log('   --version.-v                        get oricli version')
+        Log('')
     }
     async addService(serviceName:string)
     {

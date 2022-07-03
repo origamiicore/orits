@@ -41,22 +41,43 @@ const files_1 = __importDefault(require("./src/files"));
 const log_1 = __importStar(require("./src/log"));
 const name_1 = __importDefault(require("./src/name"));
 const { exec, spawn } = require('child_process');
+var pjson = require('../package.json');
 class OriTs {
     constructor() {
         this.dir = '';
-        (0, log_1.default)('OriTS v0.0.13');
         var method = process.argv[2];
         var defaultVar = process.argv[3];
         this.dir = process.cwd();
-        if (method == 'addservice') {
+        if (method == '--addservice' || method == '-a') {
+            (0, log_1.default)('OriTS v' + pjson.version);
             this.addService(defaultVar);
         }
-        else if (method == 'create') {
+        else if (method == '--version' || method == '-v') {
+            (0, log_1.default)('Version ' + pjson.version, log_1.Colors.Green);
+        }
+        else if (method == '--create' || method == '-c') {
+            (0, log_1.default)('OriTS v' + pjson.version);
             this.createProject(defaultVar);
         }
-        else {
-            (0, log_1.default)('Meyhod not found', log_1.Colors.Read);
+        else if (method == '--help' || method == '-h') {
+            (0, log_1.default)('OriTS v' + pjson.version);
+            this.printHelp();
         }
+        else {
+            (0, log_1.default)('OriTS v' + pjson.version);
+            (0, log_1.default)('Wrong arg', log_1.Colors.Read);
+            this.printHelp();
+        }
+    }
+    printHelp() {
+        (0, log_1.default)('Example usage');
+        (0, log_1.default)('   $ oricli <cammand> <options>');
+        (0, log_1.default)('');
+        (0, log_1.default)('Commands');
+        (0, log_1.default)('   --create,-c {{project name}}        create new project');
+        (0, log_1.default)('   --addservice,-a {{service name}}    create new service');
+        (0, log_1.default)('   --version.-v                        get oricli version');
+        (0, log_1.default)('');
     }
     addService(serviceName) {
         return __awaiter(this, void 0, void 0, function* () {

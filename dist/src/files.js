@@ -33,8 +33,8 @@ export default class ${name.upperCase}Service implements PackageIndex
 }`;
     }
     static serviceConfig(name) {
-        return `import { ModuleConfig } from "origamits";
-
+        return `import { ModuleConfig, PackageIndex } from "origamits";
+import ${name.upperCase}Service from "..";
 export default class ${name.upperCase}Config extends ModuleConfig
 {
     async createInstance(): Promise<PackageIndex> {
